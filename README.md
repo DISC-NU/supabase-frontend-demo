@@ -1,50 +1,104 @@
-#
+# Supabase Auth Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React TypeScript frontend application demonstrating Supabase authentication with a clean, modern UI built using Vite and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔐 User authentication (Sign up, Sign in, Sign out)
+- 🛡️ Protected routes
+- 💪 TypeScript for type safety
 
-## Expanding the ESLint configuration
+## Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Node.js (v14 or higher)
+- npm or yarn
+- A Supabase account and project
 
-- Configure the top-level `parserOptions` property like this:
+## Installation
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+1. Clone the repository:
+
+```bash
+git clone https://github.com/DISC-NU/supabase-frontend-demo.git
+cd supabase-auth-frontend
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import react from "eslint-plugin-react";
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: "18.3" } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs["jsx-runtime"].rules,
-  },
-});
+```bash
+npm install
 ```
+
+3. Create a `.env` file in the root directory:
+
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+## Development
+
+To start the development server:
+
+```bash
+npm run dev
+```
+
+Visit `http://localhost:5173` to view the application.
+
+## Build
+
+To build for production:
+
+```bash
+npm run build
+```
+
+## Project Structure
+
+```
+src/
+├── components/          # React components
+│   ├── AuthForm.tsx    # Authentication form component
+│   └── Dashboard.tsx   # Dashboard component
+├── contexts/           # React contexts
+│   └── AuthContext.tsx # Authentication context
+├── lib/               # Utility functions and configurations
+│   └── supabase.ts    # Supabase client configuration
+├── types/             # TypeScript types and interfaces
+│   └── index.ts       # Type definitions
+├── App.tsx            # Main App component
+├── AppRoutes.tsx      # Application routes
+└── main.tsx          # Application entry point
+```
+
+## Environment Variables
+
+- `VITE_SUPABASE_URL`: Your Supabase project URL
+- `VITE_SUPABASE_ANON_KEY`: Your Supabase project's anonymous key
+
+## Technologies Used
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Supabase
+- React Router DOM
+- HeadlessUI/React
+- HeroIcons
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
